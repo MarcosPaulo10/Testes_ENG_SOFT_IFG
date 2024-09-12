@@ -14,8 +14,15 @@ SECRET_KEY = 'django-insecure-2&u+*nsb0_ldm%0!bq)rj7&=g&30gx3vc1$yui@!#!ga=pnwlx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['testes-eng-fe965acb495b.herokuapp.com','*.herokuapp.com', 'localhost']
+=======
+ALLOWED_HOSTS = ['tests-eng-soft-a89b665402dc.herokuapp.com','*.herokuapp.com', 'localhost', '127.0.0.1']
+>>>>>>> 9aa8b6f1b974dce21babcc62d338807f338d4576
 
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Application definition
 
@@ -26,8 +33,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'crud',
 ]
+
+SITE_ID = 1
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -37,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -107,11 +121,19 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+<<<<<<< HEAD
 # Diretório onde os arquivos estáticos serão coletados
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 
+=======
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+# Diretório onde os arquivos estáticos serão coletados
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+>>>>>>> 9aa8b6f1b974dce21babcc62d338807f338d4576
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
